@@ -2,3 +2,5 @@ Maven project for a JMXMP connector server with configurable port, based on:
 
 http://stackoverflow.com/questions/11413178/how-to-enable-jmxmp-in-tomcat
 
+Usage (Tomcat's server.xml):
+<Listener className="javax.management.remote.extension.JMXMPLifecycleListener" port="5555" />
