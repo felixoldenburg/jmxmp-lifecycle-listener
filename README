@@ -1,0 +1,4 @@
+Maven project for a JMXMP connector server with configurable port, based on:
+
+http://stackoverflow.com/questions/11413178/how-to-enable-jmxmp-in-tomcat
+
