@@ -2,5 +2,12 @@ Maven project for a JMXMP connector server with configurable port, based on:
 
 http://stackoverflow.com/questions/11413178/how-to-enable-jmxmp-in-tomcat
 
-Usage (Tomcat's server.xml):
+Usage ($CATALINA_HOME/conf/server.xml):
 <Listener className="javax.management.remote.extension.JMXMPLifecycleListener" port="5555" />
+
+And don't forget to add the jmxmp jars to $CATALINA_HOME/lib
+See http://stackoverflow.com/questions/11412560/where-to-download-jmxmp
+
+Note
+Also make sure the JMX client also adds the jmxremote_optional.jar to the classpath.
+For VisualVM: visualvm --cp:a jmxremote_optional.jar
