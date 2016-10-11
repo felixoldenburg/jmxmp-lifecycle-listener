@@ -11,3 +11,4 @@ See http://stackoverflow.com/questions/11412560/where-to-download-jmxmp
 Note
 Also make sure the JMX client also adds the jmxremote_optional.jar to the classpath.
 For VisualVM: visualvm --cp:a jmxremote_optional.jar
+The JXM connection URL will be: service:jmx:jmxmp://<remote_server>:5555
