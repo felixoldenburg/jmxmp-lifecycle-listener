@@ -7,9 +7,13 @@ import javax.management.remote.JMXServiceURL;
 import org.apache.catalina.Lifecycle;
 import org.apache.catalina.LifecycleEvent;
 import org.apache.catalina.LifecycleListener;
+import org.apache.juli.logging.Log;
+import org.apache.juli.logging.LogFactory;
 
 public class JMXMPLifecycleListener implements LifecycleListener
 {
+    private static final Log log = LogFactory.getLog(JMXMPLifecycleListener.class);
+
     protected int port = 5555;
 
     protected JMXConnectorServer cs;
@@ -37,7 +41,7 @@ public class JMXMPLifecycleListener implements LifecycleListener
             // START
             if (Lifecycle.START_EVENT == event.getType())
             {
-                System.out.println("Start JMXMP on port " + port);
+                log.debug("Start JMXMP");
 
                 cs = JMXConnectorServerFactory.newJMXConnectorServer(
                     new JMXServiceURL("jmxmp", "0.0.0.0", port),
@@ -46,17 +50,17 @@ public class JMXMPLifecycleListener implements LifecycleListener
                 );
                 cs.start();
 
-                System.out.println("Started JMXMP");
-
+                log.info("Started JMXMP on port " + port);
             }
 
             // STOP
             else if (Lifecycle.STOP_EVENT == event.getType())
             {
-
-                System.out.println("Stop JMXMP");
+                log.debug("Stopp JMXMP");
 
                 cs.stop();
+
+                log.info("Stopped JMXMP");
             }
 
         }
